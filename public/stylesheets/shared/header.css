@@ -36,6 +36,30 @@
     padding: 1rem;
 }
 
-.header-nav li a:hover, .header-title:hover {
+.header-nav li a:hover,
+.header-title:hover {
     color: white;
+}
+
+.dropbtn {
+    min-width: 96px;
+    text-align: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    font-size: 15px;
+    display: block;
+    text-align: center;
+    padding: unset;
+}
+
+.dropbtn:hover .dropdown-content {
+    display: block;
 }

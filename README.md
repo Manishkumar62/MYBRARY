@@ -35,13 +35,13 @@ Mongoose will be used with our MongoDB implementation, it is an Object Data Mode
 
 ## Wireframes
 
-![Mybrary Landing Page](docs/HomePage.png)
-![Mybrary Authors Page](docs/AuthorsPage.png)
-![Mybrary Add Author Page](docs/AddAuthorPage.png)
-![Mybrary Author Detail Page](docs/AuthorDetailPage.png)
-![Mybrary Books Page](docs/BooksPage.png)
-![Mybrary New Book Page](docs/NewBooksPage.png)
-![Mybrary Book Detail Page](docs/BookDetailPage.png)
+![Mybrary Landing Page](public/docs/HomePage.png)
+![Mybrary Authors Page](public/docs/AuthorsPage.png)
+![Mybrary Add Author Page](public/docs/AddAuthorPage.png)
+![Mybrary Author Detail Page](public/docs/AuthorDetailPage.png)
+![Mybrary Books Page](public/docs/BooksPage.png)
+![Mybrary New Book Page](public/docs/NewBooksPage.png)
+![Mybrary Book Detail Page](public/docs/BookDetailPage.png)
 
 ## Steps to setup
 

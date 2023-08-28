@@ -1,14 +1,12 @@
-if(process.env.NODE_ENV !== 'production'){
-    require('dotenv').config()
-}
-
 const express = require("express");
 const app = express();
+const dotenv = require('dotenv')
 const expressLayouts = require("express-ejs-layouts")
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
 const indexRouter = require('./routes/index')
+const aboutmeRouter = require('./routes/aboutme')
 const authorRouter = require('./routes/authors')
 const bookRouter = require('./routes/books')
 
@@ -20,16 +18,33 @@ app.use(methodOverride('_method'))
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ limit:'10mb', extended:false }))
 
+dotenv.config()
+
 const mongoose = require('mongoose')
-mongoose.connect(process.env.DATABASE_URL, {
-    useNewUrlParser: true
-})
-const db = mongoose.connection
-db.on('error',error => console.error(error))
-db.once('open',() => console.log('Connected to Mongoose'))
+const connectDb = async ()=>{
+    try {
+        await mongoose.connect(process.env.MONGO_URL,{
+            useNewUrlParser:true
+        })
+        const db = mongoose.connection
+        db.on('error',error => console.error(error))
+        db.once('open',() => console.log('Connected to Mongoose'))
+    } catch (error) {
+        console.log(`${error}`.bgRed)
+    }
+}
+
+connectDb();
 
 app.use('/',indexRouter)
+app.use('/aboutme',aboutmeRouter)
 app.use('/authors',authorRouter)
 app.use('/books',bookRouter)
 
-app.listen(process.env.PORT || 3000)
+//port
+const PORT = 8080 || process.env.PORT
+
+//listen server
+app.listen(PORT, ()=>{
+    console.log(`Server running on port ${PORT}`)
+})
