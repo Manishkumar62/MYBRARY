@@ -25,7 +25,8 @@ const connectDb = async ()=>{
     try {
         mongoose.set("strictQuery", false);
         await mongoose.connect("mongodb+srv://vishwamanish62:manish@cluster0.r9fndjs.mongodb.net/",{
-            useNewUrlParser:true
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
         })
         const db = mongoose.connection
         db.on('error',error => console.error(error))
